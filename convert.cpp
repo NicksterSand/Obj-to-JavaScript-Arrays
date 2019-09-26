@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 	WordType wordType = None;
 
 	std::vector<std::string> vertices;
-	std::vector<std::string> indices;
+	std::vector<int> indices;
 	std::vector<std::string> normalsTemp;
 	std::vector<int> normalIndicesTemp;
 	int slashCount;
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]){
 					}
 				}
 			}
-			indices.push_back(word.erase(word.find("/")));
+			indices.push_back(std::stoi(word.erase(word.find("/")))-1);
 			//normalIndicesTemp.push_back(std::stoi(word.erase(index,word.length())));
 		}else if(wordType == Normals){
 			normalsTemp.push_back(word);
